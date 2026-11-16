@@ -1,0 +1,31 @@
+
+class Solution {
+public:
+    int myAtoi(string s) {
+        int i = 0, sign = 1;
+        long long result = 0;
+
+        while (i < s.length() && s[i] == ' ') {
+            i++;
+        }
+
+        if (i < s.length() && (s[i] == '+' || s[i] == '-')) {
+            if (s[i] == '-') {
+                sign = -1;
+            }
+            i++;
+        }
+
+        while (i < s.length() && isdigit(s[i])) {
+            result = result * 10 + (s[i] - '0');
+
+            if (result > INT_MAX) {
+                return sign == 1 ? INT_MAX : INT_MIN;
+            }
+
+            i++;
+        }
+
+        return result * sign;
+    }
+};
