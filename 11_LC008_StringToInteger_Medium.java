@@ -1,31 +1,34 @@
 
 class Solution {
-public:
-    int myAtoi(string s) {
+    public int myAtoi(String s) {
         int i = 0, sign = 1;
-        long long result = 0;
+        long result = 0;
 
-        while (i < s.length() && s[i] == ' ') {
+        // Skip leading spaces
+        while (i < s.length() && s.charAt(i) == ' ') {
             i++;
         }
 
-        if (i < s.length() && (s[i] == '+' || s[i] == '-')) {
-            if (s[i] == '-') {
+        // Check positive or negative sign
+        if (i < s.length() && (s.charAt(i) == '+' || s.charAt(i) == '-')) {
+            if (s.charAt(i) == '-') {
                 sign = -1;
             }
             i++;
         }
 
-        while (i < s.length() && isdigit(s[i])) {
-            result = result * 10 + (s[i] - '0');
+        // Read digits
+        while (i < s.length() && Character.isDigit(s.charAt(i))) {
+            result = result * 10 + (s.charAt(i) - '0');
 
-            if (result > INT_MAX) {
-                return sign == 1 ? INT_MAX : INT_MIN;
+            // Check overflow
+            if (result > Integer.MAX_VALUE) {
+                return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
             }
 
             i++;
         }
 
-        return result * sign;
+        return (int) (result * sign);
     }
-};
+}
