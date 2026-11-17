@@ -1,13 +1,12 @@
 
 class Solution {
-public:
-    int romanToInt(string s) {
+    public int romanToInt(String s) {
         int result = 0;
 
         for (int i = 0; i < s.length(); i++) {
             int value = 0;
 
-            switch (s[i]) {
+            switch (s.charAt(i)) {
                 case 'I': value = 1; break;
                 case 'V': value = 5; break;
                 case 'X': value = 10; break;
@@ -20,7 +19,7 @@ public:
             if (i + 1 < s.length()) {
                 int next = 0;
 
-                switch (s[i + 1]) {
+                switch (s.charAt(i + 1)) {
                     case 'I': next = 1; break;
                     case 'V': next = 5; break;
                     case 'X': next = 10; break;
@@ -42,4 +41,4 @@ public:
 
         return result;
     }
-};
+}
