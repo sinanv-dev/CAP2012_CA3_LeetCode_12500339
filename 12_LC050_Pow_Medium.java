@@ -1,25 +1,6 @@
 
 class Solution {
-public:
-    double myPow(double x, int n) {
-        long long power = n;
-        long double base = x;
-        long double result = 1.0;
-
-        if (power < 0) {
-            base = 1.0L / base;
-            power = -power;
-        }
-
-        while (power > 0) {
-            if (power % 2 == 1) {
-                result *= base;
-            }
-
-            base *= base;
-            power /= 2;
-        }
-
-        return (double)result;
+    public double myPow(double x, int n) {
+        return Math.pow(x, n);
     }
-};
+}
