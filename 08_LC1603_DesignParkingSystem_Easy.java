@@ -1,15 +1,15 @@
 
 class ParkingSystem {
-public:
+
     int big, medium, small;
 
-    ParkingSystem(int big, int medium, int small) {
-        this->big = big;
-        this->medium = medium;
-        this->small = small;
+    public ParkingSystem(int big, int medium, int small) {
+        this.big = big;
+        this.medium = medium;
+        this.small = small;
     }
 
-    bool addCar(int carType) {
+    public boolean addCar(int carType) {
         if (carType == 1 && big > 0) {
             big--;
             return true;
@@ -25,4 +25,4 @@ public:
 
         return false;
     }
-};
+}
