@@ -1,6 +1,6 @@
+
 class Solution {
-public:
-    int majorityElement(vector<int>& nums) {
+    public int majorityElement(int[] nums) {
         int candidate = 0;
         int count = 0;
 
@@ -18,4 +18,4 @@ public:
 
         return candidate;
     }
-};
+}
